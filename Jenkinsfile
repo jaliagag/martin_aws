@@ -7,13 +7,14 @@ pipeline {
         cleanWs()
         }
       }
-    stage('checkou'){
+    stage('checkout'){
       steps {
         checkout scm
       }
     }
     stage('terraform'){
       steps {
+        ls -l
         sh './terrformw apply -auto-approve -no-color'
       }
     }
