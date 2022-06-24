@@ -2,18 +2,27 @@ pipeline {
   agent any
 
   stages {
-    stage('test'){
+    stage('clean workspace'){
       steps {
-        script {
-          echo 'hello world!'
-          //terraform --version
-          echo 'bye world'
-
+        cleanWs()
         }
       }
-
+    stage('checkou'){
+      steps {
+        checkout scm
+      }
     }
-
+    stage('terraform'){
+      steps {
+        sh './terrformw apply -auto-approve -no-color'
+      }
+    }
+  }
+  post {
+    always {
+      cleanWs()
+    }
   }
 
 }
+
