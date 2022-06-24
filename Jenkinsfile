@@ -12,9 +12,13 @@ pipeline {
         checkout scm
       }
     }
-    stage('terraform'){
+    stage('debug'){
       steps {
         ls -l
+      }
+    }
+    stage('terraform'){
+      steps {
         sh './terrformw apply -auto-approve -no-color'
       }
     }
