@@ -14,7 +14,9 @@ pipeline {
     }
     stage('debug'){
       steps {
-        ls -l
+        script {
+          ls -l
+        }
       }
     }
     stage('terraform'){
