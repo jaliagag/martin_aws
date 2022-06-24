@@ -15,7 +15,7 @@ pipeline {
     stage('debug'){
       steps {
         script {
-          ls -l
+          sh ls -l
         }
       }
     }
