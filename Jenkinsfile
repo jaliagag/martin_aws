@@ -6,6 +6,7 @@ pipeline {
       steps {
         script {
           echo 'hello world!'
+          terraform --version
 
         }
       }
